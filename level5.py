@@ -130,3 +130,87 @@ def duplicate_element_list(list):
 	return arr
 
 print(duplicate_element_list([1,2]))
+
+#91.Prime Numbers
+def is_prime(n):
+	if n == 0 or n == 3:
+		return True
+		
+	if n%2 == 0 or n%3 ==0:
+		return False
+	
+	i = 5
+	
+	w = 2
+
+	while i * i <= n:
+		if n % i == 0:
+			return False
+
+		i += w
+		w = 6 - w
+
+	return True
+
+print("90:",is_prime(947))
+
+#92.Adding all natural numbers
+def add_all_natural_numbers(n):
+	sum = 0
+	for i in  range(5,n+1):
+		if i%5 == 0 or i%7 == 0:
+			sum+=i
+	return sum
+
+print("92:",add_all_natural_numbers(50))
+
+#93.Perfect Numbers
+def is_perfect(n):
+	i = 1
+	sum = 0
+	while i<=n/2:
+		if n%i == 0:
+			sum+=i
+		i+=1
+	return sum == n	
+
+print("93:",is_perfect(496))
+
+#94.A list of prime numbers
+def list_of_prime_numbers(n):
+	list = []
+	for i in range(1,n+1):
+		if is_prime(i):
+			list.append(i)
+	return list
+
+print("94:",list_of_prime_numbers(100))
+
+#95.Count to Number
+def count_to_number(n):
+	s = ""
+	for i in range(1,n+1):
+		s+=str(i)
+	return s
+	
+print("95:",count_to_number(10))
+
+#96.Symmetric Number Judge
+def is_symmetric(n):
+	return str(n) == str(n)[::-1]
+
+print("96:",is_symmetric(21566512))
+
+#97.Count the number of Prime Numbers
+def count_prime_numbers(n):
+	count = 0
+	for i in range(1,n+1):
+		if is_prime(i):
+			count+=1
+	return count
+
+print("97:",count_prime_numbers(100))
+
+	
+		
+		
