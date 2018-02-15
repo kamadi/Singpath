@@ -76,3 +76,117 @@ def word_length_list(s):
 	return res
 
 print("147:",word_length_list("a bb ccc dddd eeeee"))
+
+#148.Building a String
+def buildString(l,s):
+	return s.join(str(e) for e in l)
+
+print("148:",buildString([4,5,3],'hi'))	
+
+#149.Range
+def list_range(l):
+	min = l[0]
+	max = l[0]
+	for item in l:
+		if item > max:
+			max = item
+		if item < min:
+			min = item
+	return max-min
+	
+print("149:",list_range([10, 3, 5, 6]))
+
+#150.Centered Average
+def centered_average(l):
+	max = l[0]
+	min = l[0]
+	sum = 0
+	for item in l:
+		if item > max:
+			max = item
+		if item < min:
+			min = item
+		sum += item
+
+	return (sum - max - min) / (len(l) - 2)
+	
+print("150:",centered_average([1, 2, 3, 4, 100]))
+
+#151.Has 22
+def has22(l):
+	is_found = False
+	for item in l:
+		if item == 2:
+			if is_found:
+				return True
+			is_found = True
+		else:
+			is_found = False
+			
+	return False
+	
+print("151:",has22([2,3,2, 2]))
+
+#152.Sorting a List by String Length
+def sort_by_length(l):
+	return sorted(l,key=lambda item:len(str(item)),reverse = True)
+	
+print("152:",sort_by_length([46, ['meh', 3], 'Hahahaha', {'yi':'one', 'er':'two', 'san':'three'}, 'test']))
+
+#153.Sort List Based on Two Criteria
+def sortlist(l):
+	return sorted(l,key=lambda item: (-len(item), item))
+	
+print("153:",sortlist(['cba','dca','ccc','bb','a']))
+
+#154.Frequency
+def frequency(l,n):
+	count = 0
+	for item in l:
+		if item == n:
+			count+=1
+	return count
+	
+print("154:",frequency([1,2,3,4],2))
+
+#154.Deep Sort
+def deepsort(lists):
+	res = []
+	for list in lists:
+		res+=set(list)
+	return sorted(set(res),key = lambda item: len(str(item)))
+	
+print("155:",deepsort([['aa','cc','ab'],[1,3,2]]))
+
+#156.Word Split
+def word_split(s):
+	return list(s.replace(" ", ""))
+
+print("156:",word_split("word to split"))
+
+#157.Most Common Item
+def mostCommonItem(l):
+	return max(set(l), key=l.count)
+	
+print("157:",mostCommonItem([3,6,5,5,8,5,2,3]))
+
+#158.Statistical Distribution Skewness
+def stats_skew(l):
+	sortedList = sorted(l)
+	n = len(l)
+	median = None
+	index = (n - 1) // 2
+	if n % 2 == 1:
+		median = sorted(l)[index]
+	else:
+		median = (sortedList[index] + sortedList[index + 1])/2.0
+		
+	mean = sum(l) / n
+	if mean > median:
+		return "positively skewed"
+	if median > mean:
+		return "negatively skewed"
+	return "normal"
+	
+print("158",stats_skew([1,41,39,40,55]))
+
